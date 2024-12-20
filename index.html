@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+         <style>
+            * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+.container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.result {
+    font-size: 2rem;
+    background-color: #333;
+    color: #fff;
+    text-align: right;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: auto;
+}
+button {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+button:hover {
+    background-color: #ccc;
+}
+button:active {
+    background-color: #bbb;
+}
+.one, .two, .three, .four {
+    display: flex;
+    justify-content: space-between;
+}
+button:nth-child(4) {
+    background-color: #f39c12;
+    color: white;
+}
+button:nth-child(4):hover {
+    background-color: #e67e22;
+}
+button:nth-child(4):active {
+    background-color: #d35400;
+}
+
+.four button:nth-child(3) {
+    background-color: #2ecc71;
+    color: white;
+}
+.four button:nth-child(3):hover {
+    background-color: #27ae60;
+}
+.four button:nth-child(3):active {
+    background-color: #1e8449;
+}
+button:last-of-type {
+    background-color: #e74c3c;
+    color: white;
+    width: 100%;
+}
+button:last-of-type:hover {
+    background-color: #c0392b;
+}
+button:last-of-type:active {
+    background-color: #e74c3c;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+.container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.result {
+    font-size: 2rem;
+    background-color: #333;
+    color: #fff;
+    text-align: right;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: auto;
+}
+button {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+button:hover {
+    background-color: #ccc;
+}
+button:active {
+    background-color: #bbb;
+}
+.one, .two, .three, .four {
+    display: flex;
+    justify-content: space-between;
+}
+button:nth-child(4) {
+    background-color: #f39c12;
+    color: white;
+}
+button:nth-child(4):hover {
+    background-color: #e67e22;
+}
+button:nth-child(4):active {
+    background-color: #d35400;
+}
+
+.four button:nth-child(3) {
+    background-color: #2ecc71;
+    color: white;
+}
+.four button:nth-child(3):hover {
+    background-color: #27ae60;
+}
+.four button:nth-child(3):active {
+    background-color: #1e8449;
+}
+button:last-of-type {
+    background-color: #e74c3c;
+    color: white;
+    width: 100%;
+}
+button:last-of-type:hover {
+    background-color: #c0392b;
+}
+button:last-of-type:active {
+    background-color: #e74c3c;
+}
+
+         </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="result"></div>
+   <div class="one">
+    <button onclick="validate('7')">7</button>
+   <button onclick="validate('8')">8</button>
+   <button onclick="validate('9')">9</button>
+   <button onclick="validate('+')">+</button>
+   </div>
+   <div class="two">
+    <button onclick="validate('4')">4</button>
+   <button onclick="validate('5')">5</button>
+   <button onclick="validate('6')">6</button>
+   <button onclick="validate('-')">-</button>
+   </div>
+   <div class="three">
+    <button onclick="validate('1')">1</button>
+   <button onclick="validate('2')">2</button>
+   <button onclick="validate('3')">3</button>
+   <button onclick="validate('*')">*</button>
+   </div>
+   <div class="four">
+    <button onclick="validate('0')">0</button>
+   <button onclick="validate('.')">.</button>
+   <button onclick="validate('%')">%</button>
+   <button onclick="calResult()">=</button>
+   </div>
+   <button onclick="vanish()">C</button> </div>
+</body>
+
+<script>
+
+    let result=document.querySelector(".result" )
+
+    function validate(v){
+        result.innerHTML+=v
+    }
+    function calResult(){
+        result.innerHTML=eval(result.innerHTML)
+    }
+    function vanish(){
+        result.innerHTML=""
+    }
+</script>
+</html>
